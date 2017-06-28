@@ -1,0 +1,170 @@
+﻿<%@ Master Language="VB" CodeFile="ChaserMaster.master.vb" Inherits="ChaserMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <link href="Sources/css/ChaserCssClass.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/Menu.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/GridStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/Title.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/ValidatorStyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ContentPlaceHolder ID="headerPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <table style="width: 100%;">
+        <tr align="center">
+            <td>
+                <table style="width: 100%;">
+                    <tr>
+                        <td align="left" style="width: 10%">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Sources/img/refl.gif" Height="80px" />
+                        </td>
+                        <td style="width: 60%" align="left" valign="bottom">
+                            <div style="font-size: xx-large; font-family: Verdana">
+                                &nbsp;Task-Planner</div>
+                        </td>
+                        <td style="width: 60%" align="right" valign="top">
+                            <asp:Label ID="lblEmpName" runat="server" Text="Label" CssClass="label"></asp:Label>
+                            <asp:LoginStatus ID="lgStatus" runat="server" LogoutAction="RedirectToLoginPage"
+                                CssClass="label" ForeColor="Blue" LogoutPageUrl="~/frmUserLogin.aspx" />
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="3">
+                            <asp:Menu ID="mnuChaser" runat="server" Orientation="Horizontal" BackColor="#F7F6F3"
+                                DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="Small" ForeColor="#7C6F57"
+                                StaticSubMenuIndent="10px" CssClass="Menu">
+                                <StaticSelectedStyle BackColor="#5D7B9D" />
+                                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                                <DynamicMenuStyle CssClass="IE8Fix" BackColor="#F7F6F3" />
+                                <DynamicSelectedStyle BackColor="#5D7B9D" />
+                                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                                <Items>
+                                    <asp:MenuItem Text="Administration" Value="Administration">
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmEmployeeInfo.aspx" Text="EmployeeInfo"
+                                            Value="EmpInfo"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmFacilityType.aspx" Text="Facility Type"
+                                            Value="FacilityType"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmChaseDefinition.aspx" Text="Chase Definition"
+                                            Value="ChaseDef"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmCategorySettings.aspx" Text="Category Settings"
+                                            Value="CatSettings"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmPrioritySettings.aspx" Text="Priority Settings"
+                                            Value="PrioritySett"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmManageULCBranch.aspx" Text="Manage Branch"
+                                            Value="MngULCBranch"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmChaseControlStructure.aspx" Text="Chase Control Structure"
+                                            Value="ChaseCtrlStructure"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmMasterReportTool.aspx" Text="Master Report Tool"
+                                            Value="MasterRptTool"></asp:MenuItem>
+                                        <asp:MenuItem Text="Web Administration" Value="WebAdmin">
+                                            <asp:MenuItem Text="Role Management" Value="RoleManagement" NavigateUrl="~/Administration/frmRoleManagement.aspx">
+                                            </asp:MenuItem>
+                                            <asp:MenuItem Text="Role Wise Menu" Value="RoleWiseMenu" NavigateUrl="~/Administration/frmRoleWiseMenuPermission.aspx">
+                                            </asp:MenuItem>
+                                            <asp:MenuItem Text="User Wise Role" Value="UsrWiseRole" NavigateUrl="~/Administration/frmUserRoleManagement.aspx">
+                                            </asp:MenuItem>
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmHoliday.aspx" Text="Manage Holidays"
+                                            Value="MngHolidays"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmMngWeekDaysAndHour.aspx" Text="Manage WeekDays"
+                                            Value="MngWeekDays"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmChngPrimarySupport.aspx" Text="Change Primary Supp. Rep"
+                                            Value="chngSupRep"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmAddNewlyAddedEmp.aspx" Text="Add Newly Added Emp"
+                                            Value="AddNewlyAddEmp"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Administration/frmEmpInfoSync.aspx" Text="Emp. Sync"
+                                            Value="EmpSync"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                  <%--  <asp:MenuItem NavigateUrl="~/frmVoiceDataCollection.aspx" Text="Voice Data Collection"
+                                        Value="VoiceDataColl"></asp:MenuItem>--%>
+                                    <asp:MenuItem Text="Generate Chase" Value="GenerateChase">
+                                        <asp:MenuItem NavigateUrl="~/GenerateChase/frmGenerateChase.aspx" Text="Generate Chase CSF/DF"
+                                            Value="GenerateChaseCSFDF"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/GenerateChase/frmGenGenerateChase.aspx" Text="Gen. Generate Chase"
+                                            Value="GenGenerateChase"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/GenerateChase/frmEditChase.aspx" Text="Edit Chase" Value="EditChase">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/frmChangeAssignedPerson.aspx" Text="Change Assigned Person"
+                                            Value="ChngAssPerson"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="All Chases" Value="AllChases">
+                                        <asp:MenuItem Text="User Wise Chase" Value="UsrWiseChase" NavigateUrl="~/frmUserWiseChase.aspx">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/frmAssignedChase.aspx" Text="Assigned Chase" Value="AssignedChase">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/frmPerformedChase.aspx" Text="Performed Chase" Value="PerformedChase">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/frmDepartmentalChaseRpt.aspx" Text="Departmental Chase"
+                                            Value="DeptChase"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/frmWhoAssignsChase.aspx" Text="Task Initiator Report"
+                                            Value="TskIniReport"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Reports" Value="Reports">
+                                        <asp:MenuItem NavigateUrl="~/Reports/frmChaserReporting.aspx" Text="Chaser Reporting"
+                                            Value="ChaserReporting"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Reports/frmGlobalView.aspx" Text="Global View" Value="GlobalView">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Reports/frmGenerateReport.aspx" Text="Generate Report"
+                                            Value="GenerateReport"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Reports/frmReqLogView.aspx" Text="Request Log View"
+                                            Value="ReqLogView"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Reports/frmCategoryWiseGlobalView.aspx" Text="Category Wise View"
+                                            Value="CatWiseView"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Reports/frmRawDataReport.aspx" Text="Raw Data Report"
+                                            Value="RawDataReport"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Reports/PDFFollowupStatusReport.aspx" Text="PDF Followup Status Report"
+                                            Value="PDFFollowupStatusReport"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                  <%--  <asp:MenuItem Text="Market Info" Value="MktInfo">
+                                        <asp:MenuItem NavigateUrl="~/frmMktInfoRatingPrimary.aspx" Text="Primary Rating"
+                                            Value="PrimaryRating"></asp:MenuItem>
+                                        <asp:MenuItem Text="Secondary Rating" Value="SecRating"></asp:MenuItem>
+                                        <asp:MenuItem Text="All Market Info" Value="AllMktInfo" NavigateUrl="~/frmMarketInfoFilter.aspx">
+                                        </asp:MenuItem>
+                                    </asp:MenuItem>--%>
+                                </Items>
+                            </asp:Menu>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="bodyPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+
+    <script src="Sources/js/jquery-1.10.2.js" type="text/javascript"></script>
+
+    <script src="Sources/jquery/jquery.min.js" type="text/javascript"></script>
+
+    <script src="Sources/jquery/jquery-ui.js" type="text/javascript"></script>
+
+    <link href="Sources/jquery/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+    <script src="Sources/js/jquery.ui.core.min.js" type="text/javascript"></script>
+
+    <script src="Sources/js/jquery.tablesorter.min.js" type="text/javascript"></script>
+
+    <script src="Sources/js/MicrosoftAjax.js" type="text/javascript"></script>
+
+</body>
+</html>

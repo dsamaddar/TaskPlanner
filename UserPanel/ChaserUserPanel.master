@@ -1,0 +1,103 @@
+﻿<%@ Master Language="VB" CodeFile="ChaserUserPanel.master.vb" Inherits="UserPanel_ChaserUserPanel" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link href="../Sources/css/ChaserCssClass.css" rel="stylesheet" type="text/css" />
+    <link href="../Sources/css/GridStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../Sources/css/Title.css" rel="stylesheet" type="text/css" />
+    <link href="../Sources/css/ValidatorStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../Sources/css/Menu.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Sources/jquery/jquery.min.js" type="text/javascript"></script>
+
+    <script src="../Sources/jquery/jquery-ui.js" type="text/javascript"></script>
+
+    <link href="../Sources/jquery/jquery-ui.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ContentPlaceHolder ID="headerPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <table style="width: 100%;">
+        <tr align="center">
+            <td>
+                <table style="width: 100%;">
+                    <tr>
+                        <td align="left" style="width: 10%">
+                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Sources/img/refl.gif" Height="80px" />
+                        </td>
+                        <td valign="bottom" align="left">
+                            <div style="font-family: Verdana; font-size: xx-large;">
+                                Task-Planner</div>
+                        </td>
+                        <td align="right" valign="top" >
+                            <asp:Label ID="lblEmpName" runat="server" Text="Label" CssClass="label"></asp:Label>
+                            <asp:LoginStatus ID="lgStatus" runat="server" LogoutAction="RedirectToLoginPage"
+                                CssClass="label" ForeColor="Blue" LogoutPageUrl="~/frmUserLogin.aspx" />
+                        </td>
+                    </tr>
+                    <tr align="left">
+                        <td colspan="3">
+                            <asp:Menu ID="mnuUsers" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2"
+                                Font-Names="Verdana" Font-Size="0.9em" ForeColor="#284E98" Orientation="Horizontal"
+                                StaticSubMenuIndent="10px">
+                                <StaticSelectedStyle BackColor="#507CD1" />
+                                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                                <DynamicMenuStyle BackColor="#B5C7DE" />
+                                <DynamicSelectedStyle BackColor="#507CD1" />
+                                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                                <Items>
+                                    <asp:MenuItem Text="Settings" Value="Settings">
+                                        <asp:MenuItem NavigateUrl="~/UserPanel/frmChngPrimarySupport.aspx" Text="Change Primary Supp. Rep"
+                                            Value="chngSupRep"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Generate Chase" Value="Generate Chase">
+                                        <asp:MenuItem Text="DF/CSF Chase" Value="DF/CSF Chase" NavigateUrl="~/UserPanel/frmUsrGenerateChase.aspx">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem Text="Gen. Chase" Value="Gen. Chase" NavigateUrl="~/UserPanel/frmUsrGenGenerateChase.aspx">
+                                        </asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="All Chases"
+                                        Value="All Chases">
+                                        <asp:MenuItem NavigateUrl="~/frmGenUsrWiseChase.aspx" 
+                                            Text="User Wise Chase" Value="GenUsrWiseChase"></asp:MenuItem>
+                                         <asp:MenuItem NavigateUrl="~/UserPanel/frmAssignedChase.aspx" 
+                                            Text="Assigned" Value="UsrWiseAssignedChase"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/UserPanel/frmUsrPerformedChase.aspx" 
+                                            Text="Performed Chase" Value="Performed Chase"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/UserPanel/frmUsrDepartmentalChaseRpt.aspx" 
+                                            Text="Departmental Chase" Value="DeptChase"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Reports" Value="Reports">
+                                        <asp:MenuItem NavigateUrl="~/UserPanel/frmSupervisorRptView.aspx" 
+                                            Text="Supervisor Reports" Value="Supervisor Reports"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <%--<asp:MenuItem NavigateUrl="~/IFrameFMS.aspx" target="_blank"  Text="Feedback" Value="Feedback"></asp:MenuItem>--%>
+                                </Items>
+                            </asp:Menu>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ContentPlaceHolder ID="bodyPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <asp:ContentPlaceHolder ID="ScriptPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

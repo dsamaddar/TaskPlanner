@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="clsCategory">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYAAhAACACBBAAAAEAAEAACAACAAAAIAAAAIAAAgAAg=</HashCode>
+      <FileName>App_Code\Entity\clsCategory.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSubCategory">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAABAABAACAAAACAAAAQABAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Entity\clsSubCategory.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsItems">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAEAAAAAAAAAgAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\clsItems.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
